@@ -192,7 +192,7 @@ int main(int argc, char* argv[]) {
         }
         else if(inst_type == "jalr") {
             if (terms.size() == 2)
-                write_binary(encode_Rtype(0, registers[terms[1]], 0, 0, 0, 9), inst_outfile);
+                write_binary(encode_Rtype(0, registers[terms[1]], 0, 31, 0, 9), inst_outfile);
             else
                 write_binary(encode_Rtype(0, registers[terms[1]], 0, registers[terms[2]], 0, 9), inst_outfile);
         }
