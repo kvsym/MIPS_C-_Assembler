@@ -191,7 +191,10 @@ int main(int argc, char* argv[]) {
             write_binary(encode_Rtype(0, registers[terms[1]], 0, 0, 0, 8), inst_outfile);
         }
         else if(inst_type == "jalr") {
-            write_binary(encode_Rtype(0, registers[terms[1]], 0, 0, 0, 9), inst_outfile);
+            if (terms.size() == 2)
+                write_binary(encode_Rtype(0, registers[terms[1]], 0, 0, 0, 9), inst_outfile);
+            else
+                write_binary(encode_Rtype(0, registers[terms[1]], 0, registers[terms[2]], 0, 9), inst_outfile);
         }
         else if(inst_type == "syscall") {
             write_binary(encode_Rtype(0, 0, 0, 26, 0, 12), inst_outfile);
